@@ -8,8 +8,8 @@
 app-fqdn-rules.tf @umair-secops
 
 # In a true org structure, I'd suggest there would also be:
-aws.tf @hoodbu
-main.tf @hoodbu
-provider.tf @hoodbu
-variables.tf @hoodbu
-versions.tf @hoodbu
+aws.tf @umair-netops
+main.tf @umair-netops
+provider.tf @umair-netops
+variables.tf @umair-netops
+versions.tf @umair-netops
