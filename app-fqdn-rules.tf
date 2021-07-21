@@ -12,6 +12,7 @@ locals {
       "mlb.com"        = "80"
       "nhl.com"        = "80"
       "nfl.com"        = "80"
+      "cricinfo.com"   = "80"
     }
     udp = {
       "dns.google.com" = "53"
