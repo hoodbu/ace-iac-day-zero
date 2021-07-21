@@ -10,6 +10,7 @@ locals {
       "yahoo.com"      = "80"
       "whitehouse.gov" = "80"
       "mlb.com"        = "80"
+      "nhl.com"        = "80"
     }
     udp = {
       "dns.google.com" = "53"
