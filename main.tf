@@ -40,7 +40,7 @@ module "aws_transit_1" {
 module "aws_spoke_1" {
   source          = "terraform-aviatrix-modules/mc-spoke/aviatrix"
   version         = "1.1.0"
-  cloud           - "AWS"
+  cloud           = "AWS"
   account         = var.aws_account_name
   region          = var.aws_spoke1_region
   name            = var.aws_spoke1_name
@@ -54,7 +54,7 @@ module "aws_spoke_1" {
 module "azure_spoke_2" {
   source          = "terraform-aviatrix-modules/mc-spoke/aviatrix"
   version         = "1.1.0"
-  cloud           - "Azure"
+  cloud           = "Azure"
   account         = aviatrix_account.azure_account.account_name
   region          = var.azure_spoke2_region
   name            = var.azure_spoke2_name
