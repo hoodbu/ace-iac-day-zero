@@ -2,7 +2,7 @@
 # Data source to get AMI details
 ##################################################################
 data "aws_ami" "ubuntu" {
-  provider    = aws.ohio
+  provider    = aws.frankfurt
   most_recent = true
   filter {
     name   = "name"
