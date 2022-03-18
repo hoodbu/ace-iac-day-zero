@@ -6,8 +6,8 @@ provider "aviatrix" {
 
 provider "aws" {
   alias  = "frankfurt"
-  #region = var.aws_spoke1_region
-  region = "eu-central-1"
+  region = var.aws_spoke1_region
+  #region = "eu-central-1"
 }
 
 provider "azurerm" {
