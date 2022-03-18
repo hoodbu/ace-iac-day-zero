@@ -1,4 +1,4 @@
-// ACE-IAC Core Aviatrix Infrastructure
+/// ACE-IAC Core Aviatrix Infrastructure
 
 # Private Key creation
 resource "tls_private_key" "avtx_key" {
