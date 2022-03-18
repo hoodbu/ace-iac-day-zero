@@ -2,7 +2,7 @@
 # Data source to get AMI details
 ##################################################################
 data "aws_ami" "ubuntu" {
-  provider    = aws.frankfurt
+  provider    = aws.london
   most_recent = true
   filter {
     name   = "name"
@@ -40,7 +40,7 @@ module "security_group_1" {
   ingress_rules       = ["http-80-tcp", "ssh-tcp", "all-icmp"]
   egress_rules        = ["all-all"]
   providers = {
-    aws = aws.frankfurt
+    aws = aws.london
   }
 }
 
@@ -57,7 +57,7 @@ module "aws_spoke_bastion" {
   associate_public_ip_address = true
   user_data_base64            = base64encode(local.bu1_bastion_user_data)
   providers = {
-    aws = aws.frankfurt
+    aws = aws.london
   }
 }
 
