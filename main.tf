@@ -22,7 +22,7 @@ resource "aviatrix_account" "azure_account" {
   arm_application_key = var.azure_client_secret
 }
 
-# AWS Transit Modules
+# AWS LON Transit Modules
 module "aws_transit_1" {
   source              = "terraform-aviatrix-modules/aws-transit/aviatrix"
   version             = "4.0.1"
@@ -30,13 +30,13 @@ module "aws_transit_1" {
   region              = var.aws_transit1_region
   name                = var.aws_transit1_name
   cidr                = var.aws_transit1_cidr
+  instance_size       = var.aws_transit_instance_size
   ha_gw               = var.ha_enabled
   prefix              = false
-  instance_size       = var.aws_transit_instance_size
   enable_segmentation = true
 }
 
-# AWS Spoke Modules
+# AWS LON Spoke Module
 module "aws_spoke_1" {
   source          = "terraform-aviatrix-modules/aws-spoke/aviatrix"
   version         = "4.0.1"
@@ -52,6 +52,21 @@ module "aws_spoke_1" {
   transit_gw      = module.aws_transit_1.transit_gateway.gw_name
 }
 
+# AZURE CAN Transit Module
+module "azure_transit_2" {
+  source              = "terraform-aviatrix-modules/azure-spoke/aviatrix"
+  version             = "4.0.1"
+  account             = aviatrix_account.azure_account.account_name
+  region              = var.azure_transit2_region
+  name                = var.azure_transit2_name
+  cidr                = var.azure_transit2_cidr
+  instance_size       = var.azure_transit_instance_size
+  ha_gw               = var.ha_enabled
+  prefix              = false
+  enable_segmentation = true
+}
+  
+# AZURE CAN Spoke Module
 module "azure_spoke_2" {
   source          = "terraform-aviatrix-modules/azure-spoke/aviatrix"
   version         = "4.0.1"
@@ -64,7 +79,7 @@ module "azure_spoke_2" {
   prefix          = false
   suffix          = false
   security_domain = aviatrix_segmentation_security_domain.BU2.domain_name
-  transit_gw      = module.aws_transit_1.transit_gateway.gw_name
+  transit_gw      = module.azure_transit_2.transit_gateway.gw_name
 }
 
 # Multi-Cloud Segmentation
