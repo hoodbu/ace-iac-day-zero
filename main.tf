@@ -92,7 +92,7 @@ resource "aviatrix_segmentation_security_domain" "BU1" {
 resource "aviatrix_segmentation_security_domain" "BU2" {
   domain_name = "BU2"
   depends_on = [
-    module.aws_transit_1
+    module.azure_transit_2
   ]
 }
 resource "aviatrix_segmentation_security_domain_connection_policy" "BU1_BU2" {
