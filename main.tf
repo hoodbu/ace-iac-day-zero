@@ -30,7 +30,6 @@ module "aws_transit_1" {
   region              = var.aws_transit1_region
   name                = var.aws_transit1_name
   cidr                = var.aws_transit1_cidr
-  ha_gw               = var.ha_enabled
   prefix              = false
   instance_size       = var.aws_transit_instance_size
   enable_segmentation = true
@@ -45,7 +44,6 @@ module "aws_spoke_1" {
   name            = var.aws_spoke1_name
   cidr            = var.aws_spoke1_cidr
   instance_size   = var.aws_spoke_instance_size
-  ha_gw           = var.ha_enabled
   prefix          = false
   suffix          = false
   security_domain = aviatrix_segmentation_security_domain.BU1.domain_name
@@ -60,7 +58,6 @@ module "azure_spoke_2" {
   name            = var.azure_spoke2_name
   cidr            = var.azure_spoke2_cidr
   instance_size   = var.azure_spoke_instance_size
-  ha_gw           = var.ha_enabled
   prefix          = false
   suffix          = false
   security_domain = aviatrix_segmentation_security_domain.BU2.domain_name
