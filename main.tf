@@ -52,7 +52,7 @@ module "aws_spoke_1" {
   transit_gw      = module.aws_transit_1.transit_gateway.gw_name
 }
 
-# AZURE CAN Transit Module
+# AZURE CAN Transit Module (NEW)
 module "azure_transit_2" {
   source              = "terraform-aviatrix-modules/azure-spoke/aviatrix"
   version             = "4.0.1"
@@ -66,7 +66,7 @@ module "azure_transit_2" {
   enable_segmentation = true
 }
   
-# AZURE CAN Spoke Module
+# AZURE CAN Spoke Module (ADJUST)
 module "azure_spoke_2" {
   source          = "terraform-aviatrix-modules/azure-spoke/aviatrix"
   version         = "4.0.1"
