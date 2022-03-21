@@ -82,6 +82,22 @@ variable "azure_spoke2_cidr" {
   default = "10.1.212.0/24"
 }
 
+variable "azure_transit_instance_size" {
+  default = "Standard_B1ms"
+}
+
+variable "azure_transit2_region" {
+  default = "Canada Central"
+}
+
+variable "azure_transit2_name" {
+  default = "ace-iac-transit2"
+}
+
+variable "azure_transit2_cidr" {
+  default = "10.1.213.0/24"
+}
+
 variable "azure_test_instance_size" {
   default = "Standard_B1ms"
 }
