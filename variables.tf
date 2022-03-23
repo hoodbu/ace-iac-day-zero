@@ -12,6 +12,7 @@ variable "ace_password" {
 }
 
 variable "aws_account_name" {
+  default = "aws-account"
 }
 
 variable "aws_transit_instance_size" {
@@ -23,7 +24,7 @@ variable "aws_transit1_region" {
 }
 
 variable "aws_transit1_name" {
-  default = "ace-iac"
+  default = "ace-iac-transit"
 }
 
 variable "aws_transit1_cidr" {
